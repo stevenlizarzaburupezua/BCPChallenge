@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BCP.Repository.Seedwork\BCP.Repository.Seedwork.csproj" />
+    <ProjectReference Include="..\BCP.TipoCambio.Common\BCP.TipoCambio.Common.csproj" />
+    <ProjectReference Include="..\BCP.TipoCambio.Domain\BCP.TipoCambio.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

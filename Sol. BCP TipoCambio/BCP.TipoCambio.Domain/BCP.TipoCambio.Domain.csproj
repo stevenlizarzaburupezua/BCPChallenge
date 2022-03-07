@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Aggregates\TipoCambioAgg\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BCP.Domain.Seedwork\BCP.Domain.Seedwork.csproj" />
+    <ProjectReference Include="..\BCP.TipoCambio.Common\BCP.TipoCambio.Common.csproj" />
+  </ItemGroup>
+
+</Project>
