@@ -31,7 +31,6 @@ namespace BCP.TipoCambio.Repository.Repositories
         public async Task<TipooCambio> ConsultaTipoCambioAsync(int monedaOrigen, int monedaDestino)
         {
             return await base.All<TipooCambio>()
-                .AsNoTracking()
                 .Where(a => a.ID_MONEDA_ORIGEN == monedaOrigen && a.ID_MONEDA_DESTINO == monedaDestino)
                 .FirstOrDefaultAsync() ?? new TipooCambio();
         }

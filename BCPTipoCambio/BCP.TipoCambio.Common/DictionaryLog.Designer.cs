@@ -8,11 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BCP.TipoCambio.Common
-{
+namespace BCP.TipoCambio.Common {
     using System;
-
-
+    
+    
     /// <summary>
     ///   Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
     /// </summary>
@@ -23,56 +22,56 @@ namespace BCP.TipoCambio.Common
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public static class DictionaryLog
-    {
-
+    public static class DictionaryLog {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
 
         /// <summary>
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if (object.ReferenceEquals(resourceMan, null))
-                {
+        public static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BCP.TipoCambio.Common.DictionaryLog", typeof(DictionaryLog).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        public static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
             }
         }
 
         /// <summary>
+        ///   Busca una cadena traducida similar a Modificando el tipo de cambio de la moneda {0} con destino {1} al valor de la venta {2}.
+        /// </summary>
+        public static string ModificacionTipoCambio {
+            get {
+                return ResourceManager.GetString("ModificacionTipoCambio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Se registró al cliente con DNI {0} de manera exitosa..
         /// </summary>
-        public static string RegistroExitoso
-        {
-            get
-            {
+        public static string RegistroExitoso {
+            get {
                 return ResourceManager.GetString("RegistroExitoso", resourceCulture);
             }
         }
@@ -80,11 +79,18 @@ namespace BCP.TipoCambio.Common
         /// <summary>
         ///   Busca una cadena traducida similar a Registrando Cliente con DNI {0}..
         /// </summary>
-        public static string RegistroNuevoCliente
-        {
-            get
-            {
+        public static string RegistroNuevoCliente {
+            get {
                 return ResourceManager.GetString("RegistroNuevoCliente", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se modificó el tipo de cambio correctamente.
+        /// </summary>
+        public static string TipoCambioModificacionExitosa {
+            get {
+                return ResourceManager.GetString("TipoCambioModificacionExitosa", resourceCulture);
             }
         }
     }

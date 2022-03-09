@@ -117,10 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ModificacionTipoCambio" xml:space="preserve">
+    <value>Modificando el tipo de cambio de la moneda {0} con destino {1} al valor de la venta {2}</value>
+  </data>
   <data name="RegistroExitoso" xml:space="preserve">
     <value>Se registró al cliente con DNI {0} de manera exitosa.</value>
   </data>
   <data name="RegistroNuevoCliente" xml:space="preserve">
     <value>Registrando Cliente con DNI {0}.</value>
+  </data>
+  <data name="TipoCambioModificacionExitosa" xml:space="preserve">
+    <value>Se modificó el tipo de cambio correctamente</value>
   </data>
 </root>

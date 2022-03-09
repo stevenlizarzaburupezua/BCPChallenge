@@ -15,5 +15,6 @@ namespace BCP.TipoCambio.Application.Interface
         Task<ConsultaTipoCambioDTO> GetCalculoTipoCambioAsync(decimal monto, int monedaOrigen, int monedaDestino);
         Task<TransactionResponse> PostClienteAsync(FiltroRegistrarClienteRequest request);
         Task<IList<IngresoWebDTO>> PostValidarIngresoWebAsync(FiltroValidarIngresoWebRequest request);
+        Task<TransactionResponse> PutTipoCambioAsync(int codMonedaOrigen, int codMonedaDestino, decimal impVenta);
     }
 }

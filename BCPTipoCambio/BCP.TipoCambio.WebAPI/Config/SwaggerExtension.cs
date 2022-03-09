@@ -30,7 +30,34 @@ namespace BCP.TipoCambio.WebAPI.Config
                 c.IncludeXmlComments(Path.Combine(@"Infrastructure\Swagger\XML", $"{Assembly.GetExecutingAssembly().GetName().Name}.XML"));
                 c.IncludeXmlComments(Path.Combine(@"Infrastructure\Swagger\XML", "TipoCambio.DTO.XML"));
                 c.EnableAnnotations();
-            });
+
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    Description = "Ingrese el token de autorización Jwt: token de portador en el encabezado de la solicitud",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                    BearerFormat = "JWT",
+                    Scheme = "Bearer"
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                        }
+
+                },
+                        new string[] { }
+                }
+                });
+                });
+
+
 
             services.AddSwaggerGenNewtonsoftSupport();
 

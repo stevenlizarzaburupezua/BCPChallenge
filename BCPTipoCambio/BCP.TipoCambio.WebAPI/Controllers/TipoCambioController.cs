@@ -59,5 +59,17 @@ namespace BCP.TipoCambio.WebAPI.Controllers
             return Ok(await _tipoCambioService.PostClienteAsync(request));
         }
 
+        [SwaggerOperation(
+        Summary = SwaggerCons.Summary.putTipoCambioAsync,
+        OperationId = SwaggerCons.OperationId.putTipoCambioAsync)]
+        [SwaggerResponse(SwaggerCons.OK, SwaggerCons.ResponseMessages_200.putTipoCambio)]
+        [SwaggerResponse(SwaggerCons.INTERNAL_SERVER_ERROR, SwaggerCons.ResponseMessages_500.defaultMessage_500)]
+        [SwaggerResponse(SwaggerCons.UNAUTHORIZED, SwaggerCons.ResponseMessages_401.defaultMessage_401)]
+        [HttpPut(SwaggerCons.Path.putTipoCambioAsync)]
+        public async Task<IActionResult> PutTipoCambioAsync(int codMonedaOrigen, int codMonedaDestino, decimal impVenta)
+        {
+            return Ok(await _tipoCambioService.PutTipoCambioAsync(codMonedaOrigen,codMonedaDestino,impVenta));
+        }
+
     }
 }

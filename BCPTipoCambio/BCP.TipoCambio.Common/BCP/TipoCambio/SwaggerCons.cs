@@ -33,6 +33,7 @@ namespace BCP.TipoCambio.Common.BCP.TipoCambio
             public const string getTipoCambioAsync = "Tipo Cambio";
             public const string postCliente = "Cliente Registrado";
             public const string postValidarIngresoWeb = "Datos Del Cliente Cliente";
+            public const string putTipoCambio = "Modificación del Tipo de Cambio";
         }
 
         public struct Path
@@ -41,6 +42,7 @@ namespace BCP.TipoCambio.Common.BCP.TipoCambio
             public const string getTipoCambioAsync = "tipoCambioAsync";
             public const string postClienteAsync = "registrarClienteAsync";
             public const string postValidarIngresoWebAsync = "validarIngresoWebAsync";
+            public const string putTipoCambioAsync = "ModificarTipoCambioAsync";
         }
 
         public struct Summary
@@ -49,6 +51,7 @@ namespace BCP.TipoCambio.Common.BCP.TipoCambio
             public const string getTipoCambioAsync = "Servicio que obtiene el cambio de un monto";
             public const string postClienteAsync = "Servicio que Registra un nuevo Cliente";
             public const string postValidarIngresoWebAsync = "Servicio que valida el login del cliente";
+            public const string putTipoCambioAsync = "Servicio que modifica el Tipo de Cambio de una moneda especifica";
         }
 
         public struct OperationId
@@ -57,6 +60,7 @@ namespace BCP.TipoCambio.Common.BCP.TipoCambio
             public const string getTipoCambioAsync = "GetTipoCambioAsync";
             public const string postClienteAsync = "PostClienteAsync";
             public const string postValidarIngresoWebAsync = "PostValidarIngresoAsync";
+            public const string putTipoCambioAsync = "PutTipoCambioAsync";
         }
 
 

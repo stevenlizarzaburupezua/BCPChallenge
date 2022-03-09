@@ -29,20 +29,38 @@ namespace BCP.TipoCambio.Application.Implementation
         private readonly IConfiguration _configuration;
         private readonly ITipoCambioRepository _tipoCambioRepository;
         private readonly ILogger<TipoCambioService> _logger;
+        private readonly IUnitOfWork _unitOfWork;
 
         public TipoCambioService(ITipoCambioRepository tipoCambioRepository,
                                  ILogger<TipoCambioService> logger,
-                                 IConfiguration configuration
+                                 IConfiguration configuration,
+                                 IUnitOfWork unitOfWork
                                  )
         {
             _tipoCambioRepository = tipoCambioRepository;
             _logger = logger;
             _configuration = configuration;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<IList<ConsultaMonedaDTO>> GetMonedasAsync()
         {
             return await _tipoCambioRepository.ConsultaMonedasAsync<ConsultaMonedaDTO>();
+        }
+
+        public async Task<TransactionResponse> PutTipoCambioAsync(int codMonedaOrigen, int codMonedaDestino , decimal impVenta)
+        {
+            _logger.LogInformation(string.Format(BCPDictionary.ModificacionTipoCambio, codMonedaOrigen, codMonedaDestino, impVenta));
+
+            TipooCambio tipooCambio = await _tipoCambioRepository.ConsultaTipoCambioAsync(codMonedaOrigen, codMonedaDestino);
+
+            tipooCambio.IMP_VENTA = impVenta;
+
+            await _unitOfWork.SaveAsync();
+
+            _logger.LogInformation(BCPDictionary.TipoCambioModificacionExitosa);
+
+            return new TransactionResponse() { Success  = true , Mensaje = BCPDictionary.TipoCambioModificacionExitosa};
         }
 
         public async Task<ConsultaTipoCambioDTO> GetCalculoTipoCambioAsync(decimal monto, int monedaOrigen, int monedaDestino)
@@ -60,16 +78,11 @@ namespace BCP.TipoCambio.Application.Implementation
         {
             _logger.LogInformation(string.Format(BCPDictionary.RegistroNuevoCliente, request.DocumentoIdentidad));
 
-            TransactionResponse oTransactionResponse = new TransactionResponse();
-
             await _tipoCambioRepository.RegistrarClienteAsync(request.Map<RegistrarCliente>());
 
             _logger.LogInformation(string.Format(BCPDictionary.RegistroExitoso, request.DocumentoIdentidad));
 
-            oTransactionResponse.Success = true;
-            oTransactionResponse.Mensaje = string.Format(BCPDictionary.RegistroExitoso, request.DocumentoIdentidad);
-
-            return oTransactionResponse;
+            return new TransactionResponse() { Success = true, Mensaje = string.Format(BCPDictionary.RegistroExitoso, request.DocumentoIdentidad) };
         }
 
         public async Task<IList<IngresoWebDTO>> PostValidarIngresoWebAsync(FiltroValidarIngresoWebRequest request)
